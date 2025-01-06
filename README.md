@@ -168,9 +168,9 @@ We welcome contributions to **MBetterTI**! Here's how you can get started:
 
 ## 📞 Contact <a name="contact"></a>
 
-Keith Guo - [@YourTwitter](https://twitter.com/yourtwitter) - kguodev@gmail.com
+Keith Guo - [@apkaisaw](https://twitter.com/apkaisaw) - kguodev@gmail.com
 
-Project Link: [https://github.com/yourusername/MBetterTI](https://github.com/yourusername/MBetterTI)
+Project Link: [https://github.com/apkaisaw/MBetterTI](https://github.com/apkaisaw/MBetterTI)
 
 ## 📄 License <a name="license"></a>
 
