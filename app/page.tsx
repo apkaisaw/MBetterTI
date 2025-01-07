@@ -268,28 +268,34 @@ export default function Home() {
       {/* Process Section */}
       <section className="relative min-h-screen bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 py-20 md:py-32">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-from)_0%,_transparent_50%)] from-white/50"></div>
-        <div className="max-w-7xl mx-auto px-4 relative">
-          <h2 className="section-title text-4xl md:text-6xl font-bold text-center text-purple-800 mb-16 md:mb-32 tracking-tight opacity-0 transition-opacity duration-1000">Your Journey</h2>
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
+          <h2 className="section-title text-4xl md:text-6xl font-bold text-center text-purple-800 mb-16 md:mb-32 tracking-tight opacity-0 transition-opacity duration-500">Your Journey</h2>
           <div className="relative">
             <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-200/0 via-purple-500 to-purple-200/0 hidden md:block"></div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 lg:gap-16">
             {steps.map((step, index) => (
-                <div key={index} className="fade-in-section journey-step relative opacity-0" style={{ transitionDelay: `${index * 200}ms` }}>
-                  <div className="text-center">
-                    <div className="relative w-32 h-32 md:w-48 md:h-48 mx-auto mb-6 md:mb-8 rounded-2xl overflow-hidden">
+                <div key={index} 
+                     className="fade-in-section journey-step relative opacity-0 will-change-transform" 
+                     style={{ 
+                       transitionDelay: `${index * 150}ms`,
+                       transform: 'translateY(0)',
+                       transition: 'all 0.4s ease'
+                     }}>
+                  <div className="text-center group">
+                    <div className="relative w-32 h-32 md:w-40 lg:w-48 md:h-40 lg:h-48 mx-auto mb-6 md:mb-8 rounded-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
                       <Image
                         src={step.image}
                         alt={step.title}
                         fill
-                        className="object-cover"
+                        className="object-cover transform transition-transform duration-500 group-hover:scale-[1.05]"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-300/70 via-purple-200/40 to-transparent"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-purple-300/70 via-purple-200/40 to-transparent transition-opacity duration-500 group-hover:opacity-80"></div>
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <i data-lucide={step.icon} className="w-12 h-12 text-white/90 drop-shadow-lg"></i>
+                        <i data-lucide={step.icon} className="w-12 h-12 text-white/90 drop-shadow-lg transform transition-all duration-500 group-hover:scale-110"></i>
                       </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-purple-800 mb-4">{step.title}</h3>
-                    <p className="text-purple-700 leading-relaxed">{step.description}</p>
+                    <h3 className="text-2xl font-bold text-purple-800 mb-4 transition-colors duration-500 group-hover:text-purple-900">{step.title}</h3>
+                    <p className="text-purple-700 leading-relaxed transition-colors duration-500 group-hover:text-purple-800">{step.description}</p>
                   </div>
                 </div>
               ))}
@@ -300,33 +306,43 @@ export default function Home() {
 
         {/* Testimonials Section */}
       <section className="relative min-h-screen bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 relative">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-from)_0%,_transparent_70%)] from-white/30"></div>
+        <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-12 relative">
           <h2 className="section-title text-4xl md:text-6xl font-bold text-center text-purple-800 mb-16 md:mb-32 tracking-tight opacity-0 transition-opacity duration-500">Community Stories</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-16">
             {testimonials.map((testimonial, index) => (
               <div key={index} 
-                   className="fade-in-section testimonial-card relative opacity-0 will-change-transform" 
+                   className="fade-in-section testimonial-card relative opacity-0 will-change-transform group min-h-[400px]" 
                    style={{ 
                      transitionDelay: `${index * 100}ms`,
                      transform: 'translateY(0)',
-                     transition: 'opacity 0.5s ease, transform 0.5s ease'
+                     transition: 'all 0.5s ease'
                    }}>
-                <div className="text-left space-y-6 md:space-y-8 bg-white/5 backdrop-blur-sm rounded-xl p-6 hover:bg-white/10 transition-colors duration-300">
-                  <i data-lucide="quote" className="w-8 h-8 md:w-12 md:h-12 text-purple-400/50 mb-4"></i>
-                  <p className="text-xl md:text-2xl text-purple-700 italic leading-relaxed">"{testimonial.content}"</p>
-                  <div className="flex items-center gap-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden">
-                      <Image
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                        unoptimized
-                      />
-                    </div>
-                    <div>
-                      <h4 className="text-purple-800 font-semibold text-lg">{testimonial.name}</h4>
-                      <p className="text-purple-600">{testimonial.role} • {testimonial.mbti}</p>
+                <div className="relative text-left space-y-6 md:space-y-8 rounded-xl p-8 transition-all duration-500 h-full
+                              bg-gradient-to-br from-white/10 via-white/5 to-transparent backdrop-blur-sm
+                              hover:bg-white/20 hover:shadow-xl hover:shadow-purple-500/10
+                              group-hover:translate-y-[-5px] flex flex-col">
+                  <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-purple-500/5 via-purple-300/5 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute -inset-0.5 rounded-xl bg-gradient-to-br from-purple-500/20 via-purple-300/20 to-white/20 opacity-0 group-hover:opacity-100 blur-sm transition-all duration-500"></div>
+                  
+                  <div className="relative flex-1 flex flex-col">
+                    <i data-lucide="quote" className="w-8 h-8 md:w-12 md:h-12 text-purple-400/50 mb-4 transform transition-transform duration-500 group-hover:scale-110 group-hover:text-purple-400/70"></i>
+                    <p className="text-xl md:text-2xl text-purple-700 italic leading-relaxed flex-1 group-hover:text-purple-800 transition-colors duration-500">"{testimonial.content}"</p>
+                    <div className="flex items-center gap-4 mt-auto pt-8">
+                      <div className="relative w-14 h-14 rounded-full overflow-hidden transform transition-transform duration-500 group-hover:scale-105">
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-purple-300/20 to-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                          unoptimized
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-purple-800 font-semibold text-lg group-hover:text-purple-900">{testimonial.name}</h4>
+                        <p className="text-purple-600 group-hover:text-purple-700">{testimonial.role} • {testimonial.mbti}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
