@@ -354,28 +354,68 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative min-h-[60vh] md:min-h-[80vh] bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 flex items-center">
+      <section className="relative min-h-[60vh] md:min-h-[80vh] bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-b from-purple-200/50 via-purple-300/50 to-purple-400/60 backdrop-blur-sm"></div>
+          {/* Animated background elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-radial from-purple-300/30 via-purple-400/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-gradient-radial from-amber-300/20 via-amber-400/10 to-transparent rounded-full blur-3xl animate-pulse delay-1000"></div>
+          </div>
         </div>
-        <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
-          <div className="fade-in-section opacity-0">
-            <h2 className="text-4xl md:text-6xl font-bold text-purple-800 mb-6 md:mb-8 tracking-tight">Ready to Transform?</h2>
-            <p className="text-xl md:text-2xl text-purple-700 mb-8 md:mb-12 leading-relaxed">
-              Join our community of visionaries and start your journey today
+        <div className="relative z-10 max-w-4xl mx-auto text-center px-6 sm:px-8 md:px-12">
+          <div className="fade-in-section opacity-0 space-y-6 sm:space-y-8 md:space-y-10">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold bg-gradient-to-r from-purple-800 via-purple-700 to-purple-800 bg-clip-text text-transparent mb-4 md:mb-6 tracking-tight">
+              Ready to Transform?
+            </h2>
+            <p className="text-lg sm:text-xl md:text-2xl text-purple-700 mb-8 md:mb-12 leading-relaxed max-w-2xl mx-auto">
+              Join our community of visionaries and embark on a journey of self-discovery and growth
             </p>
-            <Link href="/mbti-test" 
-                  className="group inline-block bg-amber-400/10 backdrop-blur-md px-10 py-2.5 rounded-full
-                           border border-amber-200/30 shadow-lg shadow-amber-200/20
-                           hover:bg-amber-400/20 hover:border-amber-300/40
-                           transition-all duration-500 hover:scale-105 glowing-button">
-              <span className="font-medium tracking-wide text-xl bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 bg-clip-text text-transparent uppercase">
-                Begin Your Journey
-              </span>
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Link href="/mbti-test" 
+                    className="group relative inline-flex items-center justify-center bg-gradient-to-r from-amber-400/20 via-amber-300/20 to-amber-400/20 backdrop-blur-md 
+                             px-8 sm:px-10 py-3 rounded-full overflow-hidden
+                             border border-amber-200/30 shadow-lg shadow-amber-200/20
+                             hover:border-amber-300/40 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-400 opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
+                <div className="relative flex items-center gap-2">
+                  <span className="font-medium tracking-wide text-lg sm:text-xl bg-gradient-to-r from-amber-600 via-amber-500 to-amber-600 bg-clip-text text-transparent uppercase">
+                    Begin Your Journey
+                  </span>
+                  <i data-lucide="arrow-right" className="w-5 h-5 text-amber-500 transform group-hover:translate-x-1 transition-transform"></i>
+                </div>
+              </Link>
+              <Link href="/community" 
+                    className="group relative inline-flex items-center justify-center bg-white/5 backdrop-blur-md 
+                             px-8 sm:px-10 py-3 rounded-full
+                             border border-purple-300/20 
+                             hover:bg-white/10 transition-all duration-500">
+                <span className="font-medium text-lg sm:text-xl text-purple-700 group-hover:text-purple-800">
+                  Explore Community
+                </span>
+              </Link>
+            </div>
+            <div className="pt-8 sm:pt-10 md:pt-12">
+              <div className="flex items-center justify-center gap-8 text-purple-700/80">
+                <div className="flex flex-col items-center">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold">10K+</span>
+                  <span className="text-sm sm:text-base">Active Users</span>
+                </div>
+                <div className="w-px h-12 bg-purple-400/20"></div>
+                <div className="flex flex-col items-center">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold">50K+</span>
+                  <span className="text-sm sm:text-base">Growth Records</span>
+                </div>
+                <div className="w-px h-12 bg-purple-400/20"></div>
+                <div className="flex flex-col items-center">
+                  <span className="text-2xl sm:text-3xl md:text-4xl font-bold">95%</span>
+                  <span className="text-sm sm:text-base">Success Rate</span>
+                </div>
+              </div>
+            </div>
           </div>
-          </div>
-        </section>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="relative bg-gradient-to-b from-purple-200/80 to-purple-300/80 text-purple-800 py-12 md:py-16">
