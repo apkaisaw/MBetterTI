@@ -411,31 +411,31 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="relative bg-purple-300/80 text-purple-800 py-4 sm:py-5">
+      <footer className="relative bg-purple-300/80 text-purple-800 py-3 sm:py-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0">
             <Link href="/" className="flex items-center">
-              <div className="text-xl sm:text-2xl font-normal tracking-tight">
+              <div className="text-lg sm:text-xl font-normal tracking-tight">
                 <span className="bg-gradient-to-br from-purple-600 via-purple-500 to-purple-400 text-transparent bg-clip-text">M</span>
                 <span className="bg-gradient-to-br from-purple-500 via-purple-400 to-purple-300 text-transparent bg-clip-text">Better</span>
                 <span className="bg-gradient-to-br from-purple-600 via-purple-500 to-purple-400 text-transparent bg-clip-text">TI</span>
               </div>
             </Link>
 
-            <div className="flex items-center gap-6 sm:gap-8">
-              <Link href="/mbti-test" className="text-purple-700/90 hover:text-purple-800 transition-colors text-sm">MBTI Test</Link>
-              <Link href="/ai-life-coach" className="text-purple-700/90 hover:text-purple-800 transition-colors text-sm">AI Coach</Link>
-              <Link href="/community" className="text-purple-700/90 hover:text-purple-800 transition-colors text-sm">Community</Link>
+            <div className="flex items-center gap-4 sm:gap-6">
+              <Link href="/mbti-test" className="text-purple-700/90 hover:text-purple-800 transition-colors text-xs sm:text-sm">MBTI Test</Link>
+              <Link href="/ai-life-coach" className="text-purple-700/90 hover:text-purple-800 transition-colors text-xs sm:text-sm">AI Coach</Link>
+              <Link href="/community" className="text-purple-700/90 hover:text-purple-800 transition-colors text-xs sm:text-sm">Community</Link>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4">
               <Link href="mailto:support@mbetterti.com" className="text-purple-600/80 hover:text-purple-700 transition-colors">
-                <Mail className="w-4 h-4" />
+                <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </Link>
               <Link href="https://twitter.com/mbetterti" className="text-purple-600/80 hover:text-purple-700 transition-colors">
-                <Twitter className="w-4 h-4" />
+                <Twitter className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               </Link>
-              <span className="text-purple-700/70 text-xs">© 2024 MBetterTI</span>
+              <span className="text-purple-700/70 text-[10px] sm:text-xs">© 2024 MBetterTI</span>
             </div>
           </div>
         </div>
