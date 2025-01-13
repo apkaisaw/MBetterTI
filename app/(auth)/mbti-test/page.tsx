@@ -26,7 +26,7 @@ const ResultCard = ({ titleKey, children, isVisible, isLoading = false }: { titl
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className="bg-white/10 backdrop-filter backdrop-blur-lg shadow-lg rounded-3xl px-6 py-4 mb-6 transition-all duration-300 hover:shadow-xl border border-white/20"
+          className="bg-white/10 backdrop-filter backdrop-blur-lg shadow-lg rounded-[2.5rem] px-8 py-6 mb-6 transition-all duration-300 hover:shadow-xl border border-white/20"
         >
           <h4 className="text-xl font-medium mb-4 text-purple-800/70 flex items-center">
             <Sparkles className="mr-3 text-purple-600/70" size={22} />
@@ -56,7 +56,7 @@ const TestInstructions = () => (
     animate={{ opacity: 1, y: 0 }}
     className="mb-6"
   >
-    <div className="bg-white/30 backdrop-blur-md rounded-3xl p-6 shadow-lg border border-white/30">
+    <div className="bg-white/30 backdrop-blur-md rounded-[2.5rem] p-8 shadow-lg border border-white/30">
       <div className="space-y-4 text-purple-800">
         <p className="text-base font-medium">
           This test is quick and straightforward—it should only take about 5 to 20 minutes to complete. Here are a few tips:
@@ -301,19 +301,19 @@ export default function MbtiTest() {
           whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => startTest(true)}
-          className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-purple-900 px-8 py-6 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center text-lg font-semibold border border-white/30"
+          className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-purple-900 px-8 py-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center text-lg font-semibold border border-white/30 group"
         >
-          <Zap className="mr-3" size={24} />
-          Start Quick Test (5 mins, 28 questions)
+          <Zap className="mr-3 text-purple-500/90" size={24} />
+          <span className="group-hover:text-purple-900">Start Quick Test (5 mins, 28 questions)</span>
         </motion.button>
         <motion.button
           whileHover={{ scale: 1.02, y: -2 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => startTest(false)}
-          className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-purple-900 px-8 py-6 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center text-lg font-semibold border border-white/30"
+          className="w-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-purple-900 px-8 py-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl flex items-center justify-center text-lg font-semibold border border-white/30 group"
         >
-          <Brain className="mr-3" size={24} />
-          Start Full Test (20 mins, 70 questions)
+          <Brain className="mr-3 text-purple-500/90" size={24} />
+          <span className="group-hover:text-purple-900">Start Full Test (20 mins, 70 questions)</span>
         </motion.button>
       </div>
     </>
@@ -335,22 +335,59 @@ export default function MbtiTest() {
 
         {/* Progress indicator */}
         <div className="absolute top-8 left-1/2 transform -translate-x-1/2 w-full max-w-md px-4">
-          <div className="flex justify-between items-center text-sm text-purple-600 font-medium mb-2">
-            <span className="bg-white/50 backdrop-blur-md px-3 py-1 rounded-full">
-              Question {currentQuestion + 1} / {currentQuestions.length}
-            </span>
-            <span className="bg-white/50 backdrop-blur-md px-3 py-1 rounded-full">
-              {Math.round(progress)}%
-            </span>
-          </div>
-          <div className="h-1.5 bg-white/30 rounded-full overflow-hidden">
+          <div className="flex justify-between items-center text-sm mb-3">
             <motion.div 
-              initial={{ width: 0 }}
-              animate={{ width: `${progress}%` }}
-              transition={{ duration: 0.5 }}
-              className="h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full shadow-lg"
-            />
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-purple-600/70 flex items-center gap-1.5"
+            >
+              <Target size={14} className="text-purple-500/70" />
+              <span className="font-medium tracking-wide">{currentQuestion + 1} / {currentQuestions.length}</span>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="text-purple-600/70 flex items-center gap-1.5"
+            >
+              <span className="font-medium tracking-wide">{Math.round(progress)}%</span>
+              <Compass size={14} className="text-purple-500/70" />
+            </motion.div>
           </div>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-200/30 via-indigo-200/30 to-purple-200/30 blur-lg" />
+            <div className="h-1.5 bg-white/20 rounded-full overflow-hidden backdrop-blur-[2px] relative">
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                className="h-full bg-gradient-to-r from-purple-500/80 via-indigo-500/80 to-purple-500/80 rounded-full relative"
+              >
+                <motion.div
+                  animate={{
+                    background: [
+                      "linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1) 100%)",
+                      "linear-gradient(90deg, rgba(255,255,255,0.1) 100%, rgba(255,255,255,0.3) 150%, rgba(255,255,255,0.1) 200%)"
+                    ]
+                  }}
+                  transition={{
+                    duration: 1.5,
+                    repeat: Infinity,
+                    ease: "linear"
+                  }}
+                  className="absolute inset-0"
+                />
+              </motion.div>
+            </div>
+          </div>
+          <motion.p 
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="mt-2 text-center text-xs text-purple-500/60 font-medium tracking-wide"
+          >
+            {progress < 50 ? "Keep going! You're doing great!" : progress < 80 ? "Almost there!" : "Final stretch!"}
+          </motion.p>
         </div>
 
         {/* Question content */}
@@ -388,7 +425,7 @@ export default function MbtiTest() {
                     transition: { duration: 0.02 } 
                   }}
                   onClick={() => handleAnswer(option.type as "A" | "B")}
-                  className="relative overflow-hidden w-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-purple-900 px-8 py-4 rounded-2xl transition-all duration-50 shadow hover:shadow-md flex items-center justify-center border border-white/30 group"
+                  className="relative overflow-hidden w-full bg-white/20 hover:bg-white/30 backdrop-blur-md text-purple-900 px-8 py-4 rounded-full transition-all duration-50 shadow hover:shadow-md flex items-center justify-center border border-white/30 group"
                 >
                   <span className="text-center text-xl group-hover:text-purple-900">
                     {option.answer}
@@ -396,7 +433,7 @@ export default function MbtiTest() {
                   <motion.div
                     whileHover={{ x: 4 }}
                     transition={{ duration: 0.05 }}
-                    className="text-purple-500 absolute right-6"
+                    className="text-purple-500 absolute right-8"
                   >
                     <ArrowRight size={24} />
                   </motion.div>
@@ -420,7 +457,7 @@ export default function MbtiTest() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="inline-block bg-white/20 backdrop-blur-md px-5 py-1.5 rounded-full text-sm font-medium text-purple-800 mb-4"
+          className="inline-block bg-white/20 backdrop-blur-md px-6 py-2 rounded-full text-sm font-medium text-purple-800 mb-4 border border-white/30"
         >
           Analysis Complete
         </motion.div>
@@ -585,9 +622,9 @@ export default function MbtiTest() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 }}
-                className={`bg-gradient-to-br ${item.color} rounded-2xl h-full`}
+                className={`bg-gradient-to-br ${item.color} rounded-[2rem]`}
               >
-                <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 h-full flex flex-col justify-between">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[2rem] p-6 h-full flex flex-col justify-between">
                   <div className="text-base font-medium text-purple-500/90">
                     {item.label}
                   </div>
