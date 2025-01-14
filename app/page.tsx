@@ -260,13 +260,12 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section className="relative min-h-screen bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 py-16 sm:py-20 md:py-24 lg:py-32">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-from)_0%,_transparent_50%)] from-white/50"></div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative">
-          <h2 className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-purple-800 mb-12 sm:mb-16 md:mb-24 lg:mb-32 tracking-tight opacity-0 transition-opacity duration-500">Your Journey</h2>
+      <section className="relative min-h-screen bg-gradient-to-b from-purple-200 via-purple-300 to-purple-200 py-24 sm:py-28 md:py-32 lg:py-36">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-12 relative">
+          <h2 className="section-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center text-purple-800 mb-20 sm:mb-24 md:mb-28 lg:mb-32 tracking-tight opacity-0 transition-opacity duration-500">Your Journey</h2>
           <div className="relative">
-            <div className="absolute top-1/2 left-0 w-full h-0.5 bg-gradient-to-r from-purple-200/0 via-purple-500 to-purple-200/0 hidden md:block"></div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 md:gap-12 lg:gap-16">
+            <div className="absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-purple-300 via-purple-600 to-purple-300 hidden md:block"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 sm:gap-16 md:gap-14 lg:gap-16">
               {steps.map((step, index) => (
                 <div key={index} 
                      className="fade-in-section journey-step relative opacity-0 will-change-transform" 
@@ -275,21 +274,23 @@ export default function Home() {
                        transform: 'translateY(0)',
                        transition: 'all 0.4s ease'
                      }}>
-                  <div className="text-center group">
-                    <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto mb-4 sm:mb-6 md:mb-8 rounded-2xl overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
+                  <div className="text-center group px-6 sm:px-4 md:px-2">
+                    <div className="relative w-40 h-40 sm:w-36 sm:h-36 md:w-40 md:h-40 lg:w-48 lg:h-48 mx-auto mb-12 sm:mb-10 md:mb-8 rounded-2xl overflow-hidden shadow-xl shadow-purple-400/20 transition-all duration-500 group-hover:shadow-2xl group-hover:shadow-purple-400/30">
                       <Image
                         src={step.image}
                         alt={step.title}
                         fill
-                        className="object-cover transform transition-transform duration-500 group-hover:scale-[1.05]"
+                        className="object-cover transform transition-transform duration-700 group-hover:scale-110"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-purple-300/70 via-purple-200/40 to-transparent transition-opacity duration-500 group-hover:opacity-80"></div>
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <i data-lucide={step.icon} className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white/90 drop-shadow-lg transform transition-all duration-500 group-hover:scale-110"></i>
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-t from-purple-500/50 to-transparent">
+                        <i data-lucide={step.icon} className="w-12 h-12 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white drop-shadow-lg transform transition-all duration-500 group-hover:scale-125"></i>
                       </div>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-purple-800 mb-2 sm:mb-4 transition-colors duration-500 group-hover:text-purple-900">{step.title}</h3>
-                    <p className="text-sm sm:text-base md:text-lg text-purple-700 leading-relaxed transition-colors duration-500 group-hover:text-purple-800">{step.description}</p>
+                    <div className="relative space-y-6 sm:space-y-5">
+                      <span className="absolute -top-8 left-1/2 -translate-x-1/2 text-4xl sm:text-3xl font-bold text-purple-400/20 transition-all duration-500 group-hover:text-purple-500/30 group-hover:-translate-y-1">{step.number}</span>
+                      <h3 className="text-2xl sm:text-2xl font-bold text-purple-800 mb-8 sm:mb-6 transition-colors duration-500 group-hover:text-purple-900 leading-relaxed tracking-wide pt-4">{step.title}</h3>
+                      <p className="text-lg sm:text-base md:text-lg text-purple-700 leading-loose max-w-xs mx-auto transition-colors duration-500 group-hover:text-purple-800 tracking-wide">{step.description}</p>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -443,3 +444,4 @@ export default function Home() {
     </div>
   )
 }
+
