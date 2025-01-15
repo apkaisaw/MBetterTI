@@ -13,7 +13,7 @@
 [![Solidity](https://img.shields.io/badge/Solidity-0.8.x-363636)](https://soliditylang.org/)
 [![Gemini](https://img.shields.io/badge/Gemini%20API-Enabled-4285F4)](https://deepmind.google/technologies/gemini/)
 
-[Live Demo](https://m-better-ti.vercel.app) · [Report Bug](https://github.com/yourusername/MBetterTI/issues) · [Request Feature](https://github.com/yourusername/MBetterTI/issues)
+[Live Demo](https://m-better-ti.vercel.app) · [Report Bug](https://github.com/apkaisaw/MBetterTI/issues) · [Request Feature](https://github.com/apkaisaw/MBetterTI/issues)
 
 AI-Powered MBTI Growth Platform | Web3-Based Personal Development | Community-Driven Learning
 
@@ -118,7 +118,7 @@ Experience MBetterTI in action:
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/yourusername/MBetterTI.git
+git clone https://github.com/apkaisaw/MBetterTI.git
 cd MBetterTI
 ```
 
@@ -154,7 +154,7 @@ You can deploy the application to production using Vercel or a custom deployment
 - [ ] Advanced Analytics Dashboard
 - [ ] Community DAO Implementation
 
-See the [open issues](https://github.com/yourusername/MBetterTI/issues) for a full list of proposed features and known issues.
+See the [open issues](https://github.com/apkaisaw/MBetterTI/issues) for a full list of proposed features and known issues.
 
 ## 🤝 Contributing <a name="contributing"></a>
 
